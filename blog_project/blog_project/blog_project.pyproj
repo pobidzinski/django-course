@@ -50,12 +50,18 @@
     <Compile Include="blog_project\wsgi.py" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="blog\static\css\blog.css" />
     <Content Include="blog\templates\index.html" />
     <Content Include="requirements.txt" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="blog\" />
     <Folder Include="blog\migrations\" />
+    <Folder Include="blog\static\" />
+    <Folder Include="blog\static\css\" />
+    <Folder Include="blog\templates\blog\" />
+    <Folder Include="blog\templates\registration\" />
+    <Folder Include="C:\code\django-course\blog_project\blog_project\blog\static\js\" />
     <Folder Include="blog\templates\" />
     <Folder Include="blog_project\" />
   </ItemGroup>
