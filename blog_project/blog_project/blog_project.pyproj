@@ -53,7 +53,14 @@
     <Content Include="blog\static\css\blog.css" />
     <Content Include="blog\templates\blog\about.html" />
     <Content Include="blog\templates\blog\base.html" />
+    <Content Include="blog\templates\blog\comment_form.html" />
+    <Content Include="blog\templates\blog\post_confirm_delete.html" />
+    <Content Include="blog\templates\blog\post_detail.html" />
+    <Content Include="blog\templates\blog\post_draft_list.html" />
+    <Content Include="blog\templates\blog\post_form.html" />
+    <Content Include="blog\templates\blog\post_list.html" />
     <Content Include="blog\templates\index.html" />
+    <Content Include="blog\templates\registration\login.html" />
     <Content Include="requirements.txt" />
   </ItemGroup>
   <ItemGroup>
