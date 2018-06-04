@@ -1,15 +1,67 @@
 ﻿<!DOCTYPE html>
-
+{% load staticfiles %}
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="utf-8" />
-    <title></title>
+    <title>Blog</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="//cdn.jsdelivr.net/npm/medium-editor@latest/dist/js/medium-editor.min.js"></script>
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/medium-editor@latest/dist/css/medium-editor.min.css" type="text/css" media="screen" charset="utf-8">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{% static 'css/blog.css' %}" type="text/css" />
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat|Russo+One" rel="stylesheet">
+
 </head>
 <body>
 
-{% block body_block %}
+    <nav class="navbar navbar-default techfont custom-navbar">
+        <div class="container">
+            <ul class="nav navbar-nav">
+                <li><a class="navbar-brand bigbrand" href="{% url 'post_list' %}">My Blog</a></li>
+                <li><a href="{% url 'about' %}">About</a></li>
+                <li><a href="https://github.com">GitHub</a></li>
+                <li><a href="https://linkedin.com">LinkedIn</a></li>
+            </ul>
+            
+            <ul class="nav navbar-nav navbar-right">
+                {% if user.is_authenticated %}
+                    <li>
+                        <a href="{% url 'post_new' %}">New Post</a>
+                    </li>
+                    <li>
+                        <a href="{% url 'post_draft_list' %}">Drafts</a>
+                    </li>
+                    <li>
+                        <a href="{% url 'logout' %}">Logout</a>
+                    </li>
+                    <li>
+                        <a>Welcome: {{ user.username }}</a>
+                    </li>
 
-{% endblock %}
+                {% else %}
+                    <li><a class="nav navbar-nav navbar-right" href="{% url 'login' %}"><span class="glyphicon glyphicon-user"></span></a></li>
+
+                {% endif %}
+            </ul>
+
+        </div>
+    </nav>
+    <div class="content conteiner">
+        <div class="row">
+            <div class="col-md-8">
+                <div class="blog_posts">
+                    {% block CONTENT_BLOCK %}
+
+                    {% endblock %}
+                </div>
+            </div>
+        </div>
+    </div>
+
 
 </body>
 </html>
